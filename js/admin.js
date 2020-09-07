@@ -25,13 +25,16 @@ class GenerarFormulario {
         <option>Suspenso</option>
       </select>
     </div>
-    <button type="button" onclick="subirPelicula()" class="btn btn-secondary btn-lg" id="cerrarFormulario">Agregar Pelicula</button>
-    
+    <button type="button" onclick="subirPelicula()" class="btn btn-secondary btn-lg">Agregar Pelicula</button>
+    <button type="button" onclick="cerrarFormulario()" class="btn btn-secondary btn-lg">Cerrar</button>
   </form>`;
     formulario.appendChild(elemento);
   }
 }
-
+function cerrarFormulario() {
+  const cerrar = document.getElementById("formulario8");
+  cerrar.remove();
+}
 function subirPelicula() {
   console.log("hola");
   const codigo = document.getElementById("Codigo").value;
