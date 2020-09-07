@@ -25,13 +25,32 @@ class GenerarFormulario {
         <option>Suspenso</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-secondary btn-lg" id="cerrarFormulario">Agregar Pelicula</button>
+    <button type="button" onclick="subirPelicula()" class="btn btn-secondary btn-lg" id="cerrarFormulario">Agregar Pelicula</button>
     
   </form>`;
     formulario.appendChild(elemento);
   }
   eliminarProducto(elemento) {
     elemento.target.parentElement.remove();
+  }
+}
+
+function subirPelicula() {
+  console.log("hola");
+  const codigo = document.getElementById("Codigo").value;
+  const nombre = document.getElementById("Nombre").value;
+  const descripcion = document.getElementById("Descripcion").value;
+  const categoria = document.getElementById("Categoria").value;
+  const pelicula = new Peliculas(codigo, nombre, descripcion, categoria);
+  const peliculaAAgregar = new NuevaPelicula();
+  peliculaAAgregar.agregarPelicula(pelicula);
+  if (localStorage.getItem("peliculas")) {
+    const peliculas = JSON.parse(localStorage.getItem("peliculas"));
+    console.log(peliculas);
+    peliculas.push(pelicula);
+    localStorage.setItem("peliculas", JSON.stringify(peliculas));
+  } else {
+    localStorage.setItem("peliculas", JSON.stringify([pelicula]));
   }
 }
 
@@ -65,18 +84,18 @@ const eventoAgregarPelicula = document
     e.preventDefault();
   });
 
-const eventoCerrarFormulario = document
-  .getElementById("formularioAgregarPelicula")
-  .addEventListener("submit", function (e) {
-    console.log("hola");
-    const codigo = document.getElementById("Codigo").value;
-    const nombre = document.getElementById("Nombre").value;
-    const descripcion = document.getElementById("Descripcion").value;
-    const categoria = document.getElementById("Categoria").value;
-    const pelicula = new Peliculas(codigo, nombre, descripcion, categoria);
-    const peliculaAAgregar = new NuevaPelicula();
-    peliculaAAgregar.agregarPelicula(pelicula);
-    const formulario = new GenerarFormulario();
+/* const eventoCerrarFormulario = document
+        .getElementById("cerrarFormulario")
+        .addEventListener("click", function (e) {
+            console.log("hola");
+            const codigo = document.getElementById("Codigo").value;
+            const nombre = document.getElementById("Nombre").value;
+            const descripcion = document.getElementById("Descripcion").value;
+            const categoria = document.getElementById("Categoria").value;
+            const pelicula = new Peliculas(codigo, nombre, descripcion, categoria);
+            const peliculaAAgregar = new NuevaPelicula();
+            peliculaAAgregar.agregarPelicula(pelicula);
 
-    e.preventDefault();
-  });
+            e.preventDefault();
+        });
+*/
