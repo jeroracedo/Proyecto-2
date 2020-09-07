@@ -4,7 +4,8 @@
 */
 
 function obtenerlistadeusuarios() {
-  var listaUsuarios = json.parse(localStorage.getItem("listaUsuariosLs"));
+  if (localStorage.getItem("listaUsuariosLs")) {
+    /*var listaUsuarios = json.parse(localStorage.getItem("listaUsuariosLs"));
 
   if (listaUsuarios == null) {
     listaUsuarios = [
@@ -12,10 +13,21 @@ function obtenerlistadeusuarios() {
       ["1", "admin", "admin", "1"],
       ["2", "cliente", "cliente", "2"],
     ];
+  }*/
+    console.log(localStorage.getItem(JSON.parse("listaUsuariosLs")));
+    return localStorage.getItem(JSON.parse("listaUsuariosLs"));
+  } else {
+    listaUsuarios = [
+      { permisos: "ADMIN", username: "user1", password: "admin" },
+      { permisos: "cliente", username: "user2", password: "cliente" },
+    ];
+    localStorage.setItem("listaUsuariosLs", JSON.stringify(listaUsuarios));
+    console.log(listaUsuarios);
+    return listaUsuarios;
   }
-  return listaUsuarios;
 }
 
+obtenerlistadeusuarios();
 function validarCredenciales(pUsuario, pPassword) {
   var listaUsuarios = obtenerlistadeusuarios();
   var bAcceso = false;
