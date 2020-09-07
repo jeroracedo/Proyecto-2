@@ -30,9 +30,6 @@ class GenerarFormulario {
   </form>`;
     formulario.appendChild(elemento);
   }
-  eliminarProducto(elemento) {
-    elemento.target.parentElement.remove();
-  }
 }
 
 function subirPelicula() {
@@ -43,14 +40,17 @@ function subirPelicula() {
   const categoria = document.getElementById("Categoria").value;
   const pelicula = new Peliculas(codigo, nombre, descripcion, categoria);
   const peliculaAAgregar = new NuevaPelicula();
-  peliculaAAgregar.agregarPelicula(pelicula);
+
   if (localStorage.getItem("peliculas")) {
     const peliculas = JSON.parse(localStorage.getItem("peliculas"));
     console.log(peliculas);
     peliculas.push(pelicula);
     localStorage.setItem("peliculas", JSON.stringify(peliculas));
+    peliculaAAgregar.agregarPelicula(peliculas);
   } else {
     localStorage.setItem("peliculas", JSON.stringify([pelicula]));
+    const peliculas = JSON.parse(localStorage.getItem("peliculas"));
+    peliculaAAgregar.agregarPelicula(peliculas);
   }
 }
 
@@ -64,13 +64,26 @@ class Peliculas {
 }
 
 class NuevaPelicula {
-  agregarPelicula(pelicula) {
+  revisar(peliculas) {
+    for (var i = 0; i < peliculas.length; i++) {
+      const tabla = document.getElementById("tabla");
+      const elemento = document.createElement("tr");
+      elemento.innerHTML = `  <th scope="row">${peliculas[i]._Codigo}</th>
+    <td>${peliculas[i]._Nombre}</td>
+    <td>${peliculas[i]._Descripcion}</td>
+    <td>${peliculas[i]._Categoria}</td>`;
+      tabla.appendChild(elemento);
+    }
+  }
+
+  agregarPelicula(peliculas) {
+    var i = peliculas.length - 1;
     const tabla = document.getElementById("tabla");
     const elemento = document.createElement("tr");
-    elemento.innerHTML = `  <th scope="row">${pelicula._Codigo}</th>
-    <td>${pelicula._Nombre}</td>
-    <td>${pelicula._Descripcion}</td>
-    <td>${pelicula._Categoria}</td>`;
+    elemento.innerHTML = `  <th scope="row">${peliculas[i]._Codigo}</th>
+    <td>${peliculas[i]._Nombre}</td>
+    <td>${peliculas[i]._Descripcion}</td>
+    <td>${peliculas[i]._Categoria}</td>`;
     tabla.appendChild(elemento);
   }
 }
@@ -84,18 +97,11 @@ const eventoAgregarPelicula = document
     e.preventDefault();
   });
 
-/* const eventoCerrarFormulario = document
-        .getElementById("cerrarFormulario")
-        .addEventListener("click", function (e) {
-            console.log("hola");
-            const codigo = document.getElementById("Codigo").value;
-            const nombre = document.getElementById("Nombre").value;
-            const descripcion = document.getElementById("Descripcion").value;
-            const categoria = document.getElementById("Categoria").value;
-            const pelicula = new Peliculas(codigo, nombre, descripcion, categoria);
-            const peliculaAAgregar = new NuevaPelicula();
-            peliculaAAgregar.agregarPelicula(pelicula);
-
-            e.preventDefault();
-        });
-*/
+function inicio() {
+  if (localStorage.getItem("peliculas")) {
+    const peliculas = JSON.parse(localStorage.getItem("peliculas"));
+    const iniciar = new NuevaPelicula();
+    iniciar.revisar(peliculas);
+  }
+}
+inicio();
