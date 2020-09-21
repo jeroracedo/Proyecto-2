@@ -1,4 +1,4 @@
-document.querySelector("#btnIngresar").addEventListener("click", iniciarSesion);
+/*document.querySelector("#btnIngresar").addEventListener("click", iniciarSesion);
 
 function iniciarSesion() {
   var sUsuario = "";
@@ -9,5 +9,21 @@ function iniciarSesion() {
   sPassword = document.querySelector("#txtPassword").Value;
 
   bAcceso = validarCredenciales(sUsuario, sPassword);
+  console.log(bAcceso);
+}*/
+
+document.querySelector("#btnIngresar").addEventListener("click", iniciarSesion);
+
+function iniciarSesion() {
+  var sUsuario = "";
+  var sPassword = "";
+  var bAcceso = false;
+
+  sUsuario = document.querySelector("#txtUsuario").value;
+  sPassword = document.querySelector("#txtPassword").value;
+
+  bAcceso = validarCredenciales(sUsuario, sPassword);
+  console.log(sUsuario);
+  console.log(sPassword);
   console.log(bAcceso);
 }
