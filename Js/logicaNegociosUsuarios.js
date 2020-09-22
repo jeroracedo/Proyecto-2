@@ -1,82 +1,45 @@
-/*Roles:
-    1:admin
-    2:cliente
+Roles: function obtenerlistadeusuarios() {
+  /*aca se puede agregar usuarios */
+  listaUsuarios = [
+    { permisos: 1, username: "admin", password: "admin" },
+    { permisos: 2, username: "cliente", password: "1234" },
+    { permisos: 2, username: "jero", password: "1234" },
+  ];
 
+  localStorage.setItem("listaUsuarios", JSON.stringify(listaUsuarios));
 
-function obtenerlistadeusuarios() {
-  if (localStorage.getItem("listaUsuariosLs")) {
-    /*var listaUsuarios = json.parse(localStorage.getItem('listaUsuariosLs'));
-
-  if (listaUsuarios == null) {
-    listaUsuarios = [
-      //id, usuario, contraseña, rol
-      ['1', 'admin', 'admin', '1'],
-      ['2', 'cliente', 'cliente', '2'],
-    ];
-  }
-    console.log(localStorage.getItem(JSON.parse("listaUsuariosLs")));
-    return localStorage.getItem(JSON.parse("listaUsuariosLs"));
-  } else {
-    listaUsuarios = [
-      { permisos: "ADMIN", username: "user1", password: "admin" },
-      { permisos: "cliente", username: "user2", password: "cliente" },
-    ];
-    localStorage.setItem("listaUsuariosLs", JSON.stringify(listaUsuarios));
-    console.log(listaUsuarios);
-    return listaUsuarios;
-  }
-}
-
-obtenerlistadeusuarios();
-function validarCredenciales(pUsuario, pPassword) {
-  var listaUsuarios = obtenerlistadeusuarios();
-  var bAcceso = false;
-
-  for (var i = 0; i < listaUsuarios.lenght; i++) {
-    if (pUsuario == listaUsuarios[i][1] && pPassword == listaUsuarios[i][2]) {
-      bAcceso = true;
-      sessionStorage.setItem(
-        "usuarioActivo",
-        listaUsuarios[i][1] + " " + listaUsuarios[i][2]
-      );
-      sessionStorage.setItem("rolUsuarioActivo", listaUsuarios[i][3]);
-    }
-  }
-  return false;
-}
-*/
-
-/*Roles:
-    1:admin
-    2:cliente
-*/
-
-function obtenerlistadeusuarios() {
-  var listaUsuarios = JSON.parse(localStorage.getItem("listaUsuariosLs"));
-
-  if (listaUsuarios == null) {
-    listaUsuarios = [
-      //id, usuario, contraseña, rol
-      ["1", "admin", "admin", "1"],
-      ["2", "cliente", "cliente", "2"],
-    ];
-  }
   return listaUsuarios;
 }
 
-/*obtenerlistadeusuarios();*/
 function validarCredenciales(pUsuario, pPassword) {
   var listaUsuarios = obtenerlistadeusuarios();
   var bAcceso = false;
+  var pRol = 0;
 
-  for (var i = 0; i < listaUsuarios.lenght; i++) {
-    if (pUsuario == listaUsuarios[i][1] && pPassword == listaUsuarios[i][2]) {
+  var listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios"));
+  /*console.log(listaUsuarios[0][0].password);*/
+  for (var i = 0; i < listaUsuarios[0].length; i++) {
+    /*if (pUsuario == listaUsuarios[i][1] && pPassword == listaUsuarios[i][2]) {
       bAcceso = true;
-      sessionStorage.setItem(
-        "usuarioActivo",
-        listaUsuarios[i][1] + " " + listaUsuarios[i][2]
-      );
-      sessionStorage.setItem("rolUsuarioActivo", listaUsuarios[i][3]);
+    }*/
+    if (
+      pUsuario == listaUsuarios[0][i].username &&
+      pPassword == listaUsuarios[0][i].password
+    ) {
+      bAcceso = true;
+      /*Reviso el rol y dependiendo que tiene entra o no */
+      pRol = listaUsuarios[0][i].permisos;
+      switch (pRol) {
+        case 0:
+          // code block
+          break;
+        case 1:
+          location.replace("admin.html");
+          break;
+        case 2:
+          location.replace("cliente.html");
+          break;
+      }
     }
   }
   return bAcceso;

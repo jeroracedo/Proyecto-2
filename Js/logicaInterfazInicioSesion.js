@@ -23,7 +23,8 @@ function iniciarSesion() {
   sPassword = document.querySelector("#txtPassword").value;
 
   bAcceso = validarCredenciales(sUsuario, sPassword);
-  console.log(sUsuario);
-  console.log(sPassword);
   console.log(bAcceso);
+  if (bAcceso == false) {
+    alert("Usuario o contraseña incorrecto");
+  }
 }
