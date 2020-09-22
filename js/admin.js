@@ -137,12 +137,14 @@ class NuevaPelicula {
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
     <td> <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="check${peliculas[i]._Codigo}">
+    <input type="checkbox" class="form-check-input" id="check${
+      peliculas[i]._Codigo
+    }">
   </div></td>
     <td><button id="${peliculas[i]._Codigo}">Borrar
   </button>
-  <button id="${peliculas[i]._Nombre}">Modificar</button>
-  <button id="${peliculas[i]._Descripcion}"> Destacar </button>
+  <button id="${"n" + peliculas[i]._Codigo}">Modificar</button>
+  <button id="${"d" + peliculas[i]._Codigo}"> Destacar </button>
 
   </<td>
     `;
@@ -162,7 +164,7 @@ class NuevaPelicula {
         e.target.parentElement.parentElement.remove();
       }
 
-      document.getElementById(peliculas[i]._Nombre).onclick = changeMovie;
+      document.getElementById("n" + peliculas[i]._Codigo).onclick = changeMovie;
       function changeMovie(e) {
         const valores = e.target.parentElement.parentElement.childNodes;
         const formulario = new GenerarFormulario();
@@ -174,12 +176,12 @@ class NuevaPelicula {
         );
       }
       document.getElementById(
-        peliculas[i]._Descripcion
+        "d" + peliculas[i]._Codigo
       ).onclick = peliculaDestacada;
       function peliculaDestacada(e) {
         const array = JSON.parse(localStorage.getItem("peliculas"));
         for (var i = 0; i < array.length; i++) {
-          if (array[i]._Descripcion === e.target.id) {
+          if ("d" + array[i]._Codigo === e.target.id) {
             array[i]._Destacada = true;
           } else {
             array[i]._Destacada = false;
@@ -231,12 +233,14 @@ class NuevaPelicula {
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
     <td> <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="check${peliculas[i]._Codigo}">
+    <input type="checkbox" class="form-check-input" id="check${
+      peliculas[i]._Codigo
+    }">
   </div> </td>
     <td><button  id="${peliculas[i]._Codigo}">Borrar
   </button>
-  <button id="${peliculas[i]._Nombre}"> Modificar</button>
-  <button id="${peliculas[i]._Descripcion}"> Destacar </button>
+  <button id="${"n" + peliculas[i]._Codigo}"> Modificar</button>
+  <button id="${"d" + peliculas[i]._Codigo}"> Destacar </button>
   </<td>`;
     tabla.appendChild(elemento);
     document.getElementById(peliculas[i]._Codigo).onclick = deleteMovie;
@@ -252,7 +256,7 @@ class NuevaPelicula {
       }
       e.target.parentElement.parentElement.remove();
     }
-    document.getElementById(peliculas[i]._Nombre).onclick = changeMovie;
+    document.getElementById("n" + peliculas[i]._Codigo).onclick = changeMovie;
 
     function changeMovie(e) {
       const valores = e.target.parentElement.parentElement.childNodes;
@@ -266,12 +270,12 @@ class NuevaPelicula {
       );
     }
     document.getElementById(
-      peliculas[i]._Descripcion
+      "d" + peliculas[i]._Codigo
     ).onclick = peliculaDestacada;
     function peliculaDestacada(e) {
       const array = JSON.parse(localStorage.getItem("peliculas"));
       for (var i = 0; i < array.length; i++) {
-        if (array[i]._Descripcion === e.target.id) {
+        if ("d" + array[i]._Codigo === e.target.id) {
           array[i]._Destacada = true;
         } else {
           array[i]._Destacada = false;
