@@ -98,6 +98,7 @@ function subirPelicula() {
       const peliculas = JSON.parse(localStorage.getItem("peliculas"));
       peliculaAAgregar.agregarPelicula(peliculas);
     }
+    cerrarFormulario();
   }
 }
 
