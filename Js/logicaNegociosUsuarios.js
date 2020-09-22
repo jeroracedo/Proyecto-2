@@ -2,7 +2,7 @@ Roles: function obtenerlistadeusuarios() {
   /*aca se puede agregar usuarios */
   listaUsuarios = [
     { permisos: 1, username: "admin", password: "admin" },
-    { permisos: 2, username: "cliente", password: "1234" },
+    { permisos: 2, username: "cliente", password: "cliente" },
     { permisos: 2, username: "jero", password: "1234" },
   ];
 
@@ -17,18 +17,20 @@ function validarCredenciales(pUsuario, pPassword) {
   var pRol = 0;
 
   var listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios"));
-  /*console.log(listaUsuarios[0][0].password);*/
-  for (var i = 0; i < listaUsuarios[0].length; i++) {
+  // console.log(listaUsuarios[0].password);
+  //console.log(pUsuario);
+  for (var i = 0; i < listaUsuarios.length; i++) {
     /*if (pUsuario == listaUsuarios[i][1] && pPassword == listaUsuarios[i][2]) {
       bAcceso = true;
     }*/
+    /*console.log(listaUsuarios[0][i].username);*/
     if (
-      pUsuario == listaUsuarios[0][i].username &&
-      pPassword == listaUsuarios[0][i].password
+      pUsuario == listaUsuarios[i].username &&
+      pPassword == listaUsuarios[i].password
     ) {
       bAcceso = true;
       /*Reviso el rol y dependiendo que tiene entra o no */
-      pRol = listaUsuarios[0][i].permisos;
+      pRol = listaUsuarios[i].permisos;
       switch (pRol) {
         case 0:
           // code block

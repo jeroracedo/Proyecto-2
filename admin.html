@@ -1,50 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-            crossorigin="anonymous"
-            />
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-10">
-                </div>
-                <div class="col">
-                    <button type="button" class="btn btn-secondary btn-lg"
-                        id="agregarPelicula">Agregar Pelicula</button>
-                 </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetFilms</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="fixed-top">
+      <div class="main-menu">
+        <nav
+          class="navbar navbar-expand-lg navbar-light fixed-top"
+          id="transparenciaNavbar"
+        >
+          <div class="container">
+            <a class="navbar-brand" href="#"
+              ><img src="img/logo.png" class="logo-brand" alt="logo" id="logo"
+            /></a>
+            <a class="navbar-brand h1" href="#">NetFilms</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto h5">
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    href="#"
+                    onclick="location.replace('index.html')"
+                    >Cerrar sesion</a
+                  >
+                </li>
+              </ul>
             </div>
-            
-            <div id="formularioAgregarPelicula">
+          </div>
+        </nav>
+      </div>
+    </header>
 
-            </div>
+    <section id="listapeliculas">
+      <div class="container">
+        <table class="table fondotabla">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Publicado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla"></tbody>
+        </table>
+      </div>
+    </section>
 
-            <table class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Descripcion</th>
-                    <th scope="col">Categoria</th>
-                    <th scope="col">Publicado</th>
-                    <th scope="col">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody id="tabla">
-                </tbody>
-              </table>
-                
-            </div>
+    <section id="edicion">
+      <div class="container">
+        <div class="row">
+          <div class="col-10"></div>
+          <div class="col">
+            <button
+              type="button"
+              class="btn btn-secondary btn-lg"
+              id="agregarPelicula"
+            >
+              Agregar Pelicula
+            </button>
+          </div>
         </div>
-       
-        <script src="./js/admin.js"></script>
-            
-    </body>
-        </html>
+
+        <div id="formularioAgregarPelicula"></div>
+      </div>
+    </section>
+
+    <script src="./js/admin.js"></script>
+  </body>
+</html>

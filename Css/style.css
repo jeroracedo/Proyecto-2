@@ -33,3 +33,25 @@ body {
   font-size: 18px;
   border: 0;
 }
+
+/*pagina admin*/
+#listapeliculas {
+  margin-top: 100px;
+}
+
+/* NAVBAR */
+#transparenciaNavbar {
+  background: white;
+}
+#logo {
+  width: 50px;
+}
+
+.fondotabla {
+  /*background: rgba(70, 70, 70, 0.3);*/
+  background: white;
+}
+
+.labelblanco {
+  color: white;
+}
