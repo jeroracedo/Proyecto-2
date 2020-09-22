@@ -39,6 +39,8 @@ class GenerarFormulario {
 function cerrarFormulario() {
   const cerrar = document.getElementById("formulario8");
   cerrar.remove();
+  var mostrarBoton = document.getElementById("agregarPelicula");
+  mostrarBoton.style.display = "block";
 }
 //Sube la pelicula al local storage
 function subirPelicula() {
@@ -99,6 +101,8 @@ function subirPelicula() {
       peliculaAAgregar.agregarPelicula(peliculas);
     }
     cerrarFormulario();
+    var mostrarBoton = document.getElementById("agregarPelicula");
+    mostrarBoton.style.display = "block";
   }
 }
 
@@ -314,7 +318,8 @@ const eventoAgregarPelicula = document
     console.log("hice click");
     const formulario = new GenerarFormulario();
     formulario.generarForumulario("", "", "", "Agregar Pelicula");
-
+    var ocultarBoton = document.getElementById("agregarPelicula");
+    ocultarBoton.style.display = "none";
     e.preventDefault();
   });
 
