@@ -5,7 +5,31 @@ $(function () {
     $nav.toggleClass("scrolled", $(this).scrollTop() > $nav.height());
   });
 });
-/*funcion para unificar el tamaño de las imagenes de las peliculas*/
-pelisImgId = document.getElementById("pelisImgId");
-pelisImgId.style.height = "50px";
-pelisImgId.style.width = "50px";
+//funciones para el contenido del slider
+const pelis = JSON.parse(localStorage.getItem("peliculas"));
+class MostrarPelicula {
+  ver(peliculas) {
+    const slider = document.getElementById("slider");
+    
+    
+    for (var i = 0; i < peliculas.length; i++) {
+      console.log(peliculas[i]);
+      const itempeli = document.createElement("div");
+      itempeli.innerHTML = `<div class="item">
+            <a href="#"><img src="${peliculas[i]._Imagen}" /></a>
+      </div>`;
+      
+      slider.appendChild(itempeli);
+    }
+  }
+}
+function iniciocarousel() {
+  if (localStorage.getItem("peliculas")) {
+    const pelis = JSON.parse(localStorage.getItem("peliculas"));
+    const ini = new MostrarPelicula();
+    console.log("ufa..");
+    ini.ver(pelis);
+  }
+}
+
+iniciocarousel();
