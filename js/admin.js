@@ -82,16 +82,21 @@ function subirPelicula() {
         localStorage.setItem("peliculas", JSON.stringify(peliculas));
         peliculaAAgregar.agregarPelicula(peliculas);
       } else {
-        alert("El id ya se encuentra agregado ");
-        for (var i = 0; i < peliculas.length; i++) {
-          if (peliculas[i]._Codigo == pelicula._Codigo) {
-            document
-              .getElementById(peliculas[i]._Codigo)
-              .parentElement.parentElement.remove();
-            peliculas.splice(i, 1);
-            peliculas.push(pelicula);
-            peliculaAAgregar.agregarPelicula(peliculas);
-            localStorage.setItem("peliculas", JSON.stringify(peliculas));
+        var consulta = window.confirm(
+          "El id ya se encuentra agregado desea modificar la pelicula"
+        );
+        console.log(consulta);
+        if (consulta === true) {
+          for (var i = 0; i < peliculas.length; i++) {
+            if (peliculas[i]._Codigo == pelicula._Codigo) {
+              document
+                .getElementById(peliculas[i]._Codigo)
+                .parentElement.parentElement.remove();
+              peliculas.splice(i, 1);
+              peliculas.push(pelicula);
+              peliculaAAgregar.agregarPelicula(peliculas);
+              localStorage.setItem("peliculas", JSON.stringify(peliculas));
+            }
           }
         }
       }
