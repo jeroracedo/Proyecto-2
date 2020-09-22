@@ -5,23 +5,23 @@ class GenerarFormulario {
     //const elemento = document.createElement("div");
     formulario.innerHTML = `<form id="formulario8">
     <div class="form-group">
-      <label for="exampleFormControlInput1">Codigo</label>
+      <label for="exampleFormControlInput1" class="labelblanco">Codigo</label>
       <input value="${id}" type="codigo" class="form-control" id="Codigo" placeholder="Codigo">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlInput1">Nombre</label>
+      <label for="exampleFormControlInput1" class="labelblanco">Nombre</label>
       <input value="${nombre}" type="codigo" class="form-control" id="Nombre" placeholder="Nombre">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Descripción</label>
+      <label for="exampleFormControlTextarea1" class="labelblanco">Descripción</label>
       <textarea class="form-control"  id="Descripcion" rows="3">${descripcion}</textarea>
     </div>
     <div class="form-group">
-      <label for="exampleFormControlInput1">Imagen</label>
+      <label for="exampleFormControlInput1" class="labelblanco">Imagen</label>
       <input type="codigo" class="form-control" id="Imagen" placeholder="Imagen">
     </div>
     <div class="form-group">
-      <label for="exampleFormControlSelect1">Categoria</label>
+      <label for="exampleFormControlSelect1" class="labelblanco">Categoria</label>
       <select class="form-control" id="Categoria">
         <option>Acción</option>
         <option>Comedia</option>
@@ -30,7 +30,7 @@ class GenerarFormulario {
         <option>Suspenso</option>
       </select>
     </div>
-    <button type="button" onclick="subirPelicula()" class="btn btn-secondary btn-lg">Agregar Pelicula</button>
+    <button type="button" onclick="subirPelicula() " class="btn btn-secondary btn-lg">Agregar Pelicula</button>
     <button type="button" onclick="cerrarFormulario()" class="btn btn-secondary btn-lg">Cerrar</button>
   </form>`;
   }
