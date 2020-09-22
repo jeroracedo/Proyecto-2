@@ -1,6 +1,6 @@
 class GenerarFormulario {
   // Genera el Formulario al hacer click en boton generar formulario
-  generarForumulario(id, nombre, descripcion) {
+  generarForumulario(id, nombre, descripcion, nombreBoton) {
     const formulario = document.getElementById("formularioAgregarPelicula");
     //const elemento = document.createElement("div");
     formulario.innerHTML = `<form id="formulario8">
@@ -30,7 +30,7 @@ class GenerarFormulario {
         <option>Suspenso</option>
       </select>
     </div>
-    <button type="button" onclick="subirPelicula() " class="btn btn-secondary btn-lg">Agregar Pelicula</button>
+    <button type="button" onclick="subirPelicula() " class="btn btn-secondary btn-lg">${nombreBoton}</button>
     <button type="button" onclick="cerrarFormulario()" class="btn btn-secondary btn-lg">Cerrar</button>
   </form>`;
   }
@@ -165,7 +165,8 @@ class NuevaPelicula {
         formulario.generarForumulario(
           valores[1].textContent,
           valores[3].textContent,
-          valores[5].textContent
+          valores[5].textContent,
+          "Guardar Cambios"
         );
       }
       document.getElementById(
@@ -256,7 +257,8 @@ class NuevaPelicula {
       formulario.generarForumulario(
         valores[1].textContent,
         valores[3].textContent,
-        valores[5].textContent
+        valores[5].textContent,
+        "Guardar Cambios"
       );
     }
     document.getElementById(
@@ -311,7 +313,7 @@ const eventoAgregarPelicula = document
   .addEventListener("click", function (e) {
     console.log("hice click");
     const formulario = new GenerarFormulario();
-    formulario.generarForumulario("", "", "");
+    formulario.generarForumulario("", "", "", "Agregar Pelicula");
 
     e.preventDefault();
   });
