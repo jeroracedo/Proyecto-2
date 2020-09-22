@@ -54,7 +54,8 @@ function subirPelicula() {
     descripcion,
     categoria,
     false,
-    imagen
+    imagen,
+    false
   );
   const peliculaAAgregar = new NuevaPelicula();
 
@@ -101,13 +102,22 @@ function subirPelicula() {
 }
 
 class Peliculas {
-  constructor(Codigo, Nombre, Descripcion, Categoria, Destacada, Imagen) {
+  constructor(
+    Codigo,
+    Nombre,
+    Descripcion,
+    Categoria,
+    Destacada,
+    Imagen,
+    Publicada
+  ) {
     this._Codigo = Codigo;
     this._Nombre = Nombre;
     this._Descripcion = Descripcion;
     this._Categoria = Categoria;
     this._Destacada = Destacada;
     this._Imagen = Imagen;
+    this._Publicada = Publicada;
   }
 }
 
@@ -122,7 +132,7 @@ class NuevaPelicula {
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
     <td> <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <input type="checkbox" class="form-check-input" id="check${peliculas[i]._Codigo}">
   </div></td>
     <td><button id="${peliculas[i]._Codigo}">Borrar
   </button>
@@ -171,6 +181,37 @@ class NuevaPelicula {
         }
         localStorage.setItem("peliculas", JSON.stringify(array));
       }
+      document.getElementById(
+        "check" + peliculas[i]._Codigo
+      ).onclick = peliculaPublicada;
+      function peliculaPublicada(e) {
+        console.log(
+          e.target.parentElement.parentElement.parentElement.childNodes[1]
+            .textContent
+        );
+        const array = JSON.parse(localStorage.getItem("peliculas"));
+        if (e.target.checked === true) {
+          const id =
+            e.target.parentElement.parentElement.parentElement.childNodes[1]
+              .textContent;
+          for (var i = 0; i < array.length; i++) {
+            if (array[i]._Codigo == id) {
+              array[i]._Publicada = true;
+              localStorage.setItem("peliculas", JSON.stringify(array));
+            }
+          }
+        } else {
+          const id =
+            e.target.parentElement.parentElement.parentElement.childNodes[1]
+              .textContent;
+          for (var i = 0; i < array.length; i++) {
+            if (array[i]._Codigo === id) {
+              array[i]._Publicada = false;
+              localStorage.setItem("peliculas", JSON.stringify(array));
+            }
+          }
+        }
+      }
     }
   }
 
@@ -184,7 +225,7 @@ class NuevaPelicula {
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
     <td> <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <input type="checkbox" class="form-check-input" id="check${peliculas[i]._Codigo}">
   </div> </td>
     <td><button  id="${peliculas[i]._Codigo}">Borrar
   </button>
@@ -230,6 +271,36 @@ class NuevaPelicula {
         }
       }
       localStorage.setItem("peliculas", JSON.stringify(array));
+    }
+    document.getElementById(
+      "check" + peliculas[i]._Codigo
+    ).onclick = peliculaPublicada;
+    function peliculaPublicada(e) {
+      console.log(
+        e.target.parentElement.parentElement.childNodes[1].textContent
+      );
+      const array = JSON.parse(localStorage.getItem("peliculas"));
+      if (e.target.checked === true) {
+        const id =
+          e.target.parentElement.parentElement.parentElement.childNodes[1]
+            .textContent;
+        for (var i = 0; i < array.length; i++) {
+          if (array[i]._Codigo === id) {
+            array[i]._Publicada = true;
+            localStorage.setItem("peliculas", JSON.stringify(array));
+          }
+        }
+      } else {
+        const id =
+          e.target.parentElement.parentElement.parentElement.childNodes[1]
+            .textContent;
+        for (var i = 0; i < array.length; i++) {
+          if (array[i]._Codigo === id) {
+            array[i]._Publicada = false;
+            localStorage.setItem("peliculas", JSON.stringify(array));
+          }
+        }
+      }
     }
   }
 }
