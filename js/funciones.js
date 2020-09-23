@@ -10,15 +10,15 @@ const pelis = JSON.parse(localStorage.getItem("peliculas"));
 class MostrarPelicula {
   ver(peliculas) {
     const slider = document.getElementById("slider");
-    
-    
+
     for (var i = 0; i < peliculas.length; i++) {
       console.log(peliculas[i]);
       const itempeli = document.createElement("div");
-      itempeli.innerHTML = `<div class="item">
-            <a href="#"><img src="${peliculas[i]._Imagen}" /></a>
-      </div>`;
-      
+      itempeli.className = "item";
+      itempeli.innerHTML = `
+            <img src="${peliculas[i]._Imagen}" />
+      `;
+
       slider.appendChild(itempeli);
     }
   }
