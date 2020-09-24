@@ -179,6 +179,8 @@ class NuevaPelicula {
           valores[5].textContent,
           "Guardar Cambios"
         );
+        var ocultarBoton = document.getElementById("agregarPelicula");
+        ocultarBoton.style.display = "none";
       }
       document.getElementById(
         "d" + peliculas[i]._Codigo
@@ -273,6 +275,8 @@ class NuevaPelicula {
         valores[5].textContent,
         "Guardar Cambios"
       );
+      var ocultarBoton = document.getElementById("agregarPelicula");
+      ocultarBoton.style.display = "none";
     }
     document.getElementById(
       "d" + peliculas[i]._Codigo
