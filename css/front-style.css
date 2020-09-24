@@ -217,3 +217,22 @@ Style the video: 100% width and height to cover the entire window */
     rgba(0, 0, 0, 1) 100%
   );
 }
+
+footer a {
+  color: #035379;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+footer a:hover {
+  color: #3abdfa;
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 60px;
+  border-top: 1px solid#035379;
+  background-color: #01334b7a;
+  color: #035379;
+}
