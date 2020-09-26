@@ -135,6 +135,12 @@ class NuevaPelicula {
   // Revisa el Local Storage y ante la presencia de datos genera el listado
   revisar(peliculas) {
     for (var i = 0; i < peliculas.length; i++) {
+      let checked;
+      if (peliculas[i]._Publicada) {
+        checked = "checked";
+      } else {
+        checked = "";
+      }
       const tabla = document.getElementById("tabla");
       const elemento = document.createElement("tr");
       elemento.innerHTML = `  <th scope="row">${peliculas[i]._Codigo}</th>
@@ -142,9 +148,8 @@ class NuevaPelicula {
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
     <td> <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="check${
-      peliculas[i]._Codigo
-    }">
+    <input type="checkbox" ${checked}
+    } class="form-check-input" id="check${peliculas[i]._Codigo}">
   </div></td>
     <td><button id="${peliculas[i]._Codigo}">Borrar
   </button>
@@ -240,7 +245,7 @@ class NuevaPelicula {
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
     <td> <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="check${
+    <input type="checkbox"  class="form-check-input" id="check${
       peliculas[i]._Codigo
     }">
   </div> </td>
