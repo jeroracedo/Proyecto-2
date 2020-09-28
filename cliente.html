@@ -13,7 +13,6 @@
       type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"
     ></script>
-
     <link rel="stylesheet" href="css/front-style.css" />
     <link
       rel="stylesheet"
@@ -38,196 +37,70 @@
   <body class="bg-black">
     <header>
       <div class="fixed-top" w3-include-html="menu.html"></div>
-      <div id="videoDiv">
-        <div id="videoBlock">
-          <video
-            id="video"
-            preload
-            autoplay
-            muted
-            loop
-            class="embed-responsive embed-responsive-16by9"
-          >
-            <source src="videos/sample_1280x720_5mb.mp4" type="video/mp4" />
-          </video>
+      <div id="destaca_pelicula">
+        
+      </div>
+      </div>
+      <!--div id="destacado">
+        <img src="img/spartacus.webp" />
+
+        <div id="resumen-peli">
+          <h3>Nombre de la Pelicula</h3>
+          <p>breve reseña...</p>
+          <a id="btnPlay" data-target="#player" data-toggle="modal">
+            <i class="fa fa-play-circle" aria-hidden="true"></i> Reproducir
+          </a>
         </div>
-      </div>
-      <div class="resumen-peli">
-        <h3>Nombre de la Pelicula</h3>
-        <p>breve reseña...</p>
-        <button id="btnPlay" data-target="#player" data-toggle="modal">
-          <i class="fa fa-play-circle" aria-hidden="true"></i> Reproducir
-        </button>
-      </div>
+      </div-->
     </header>
     <!-- MAIN -->
     <main role="main" class="d-flex flex-row flex-wrap">
-      <!--Categoria 1 de peliculas (Accion)-->
-      <div class="tit-section"><h5>Acción</h5></div>
-      <div class="wrapper">
-        <section id="cat1-sec1">
-          <a href="#cat1-sec3">‹</a>
-          <div id="slider" class="d-flex flex-row"></div>
-          <a href="#cat1-sec2">›</a>
-        </section>
-        <section id="cat1-sec2">
-          <a href="#cat1-sec1">‹</a>
-          <div class="item">
-            <img src="img/apache.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/spartacus.webp" />
-          </div>
-          <div class="item">
-            <img src="img/lanina.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/scielos.webp" />
-          </div>
-          <div class="item">
-            <img src="img/call-saul.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/elfinal.webp" />
-          </div>
-
-          <a href="#cat1-sec3">›</a>
-        </section>
-        <section id="cat1-sec3">
-          <a href="#cat1-sec2">‹</a>
-          <div class="item">
-            <img src="img/spartacus.webp" />
-          </div>
-          <div class="item">
-            <img src="img/call-saul.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/elfinal.webp" />
-          </div>
-          <div class="item">
-            <img src="img/lanina.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/scielos.webp" />
-          </div>
-          <div class="item">
-            <img src="img/thewitcher.jpg" />
-          </div>
-          <a href="#cat1-sec1">›</a>
-        </section>
-      </div>
-      <!--Categoria 2 de peliculas (Comedia)-->
-      <div class="tit-section"><h5>Comedia</h5></div>
-      <div class="wrapper">
-        <section id="cat2-sec1">
-          <a href="#cat2-sec3">‹</a>
-          <div id="slider_comedia" class="d-flex flex-row"></div>
-          <a href="#cat2-sec2">›</a>
-        </section>
-        <section id="cat2-sec2">
-          <a href="#cat2-sec1">‹</a>
-          <div class="item">
-            <img src="img/jonyenglish.webp" />
-          </div>
-          <div class="item">
-            <img src="img/simuladores.webp" />
-          </div>
-          <div class="item">
-            <img src="img/apache.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/spartacus.webp" />
-          </div>
-          <div class="item">
-            <img src="img/call-saul.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/thewitcher.jpg" />
-          </div>
-          <a href="#cat2-sec3">›</a>
-        </section>
-        <section id="cat2-sec3">
-          <a href="#cat2-sec2">‹</a>
-          <div class="item">
-            <img src="img/jonyenglish.webp" />
-          </div>
-          <div class="item">
-            <img src="img/simuladores.webp" />
-          </div>
-          <div class="item">
-            <img src="img/apache.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/spartacus.webp" />
-          </div>
-          <div class="item">
-            <img src="img/call-saul.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/thewitcher.jpg" />
-          </div>
-          <a href="#cat2-sec1">›</a>
-        </section>
-      </div>
-      <!--Categoria 3 de peliculas (Terror)-->
-      <div class="tit-section"><h5>Terror</h5></div>
-      <div class="wrapper">
-        <section id="cat3-sec1">
-          <a href="#cat3-sec3">‹</a>
-          <div id="slider_terror" class="d-flex flex-row"></div>
-          <a href="#cat3-sec2">›</a>
-        </section>
-        <section id="cat3-sec2">
-          <a href="#cat3-sec1">‹</a>
-          <div class="item">
-            <img src="img/apache.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/spartacus.webp" />
-          </div>
-          <div class="item">
-            <img src="img/lanina.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/scielos.webp" />
-          </div>
-          <div class="item">
-            <img src="img/call-saul.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/elfinal.webp" />
-          </div>
-
-          <a href="#cat3-sec3">›</a>
-        </section>
-        <section id="cat3-sec3">
-          <a href="#cat3-sec2">‹</a>
-          <div class="item">
-            <img src="img/spartacus.webp" />
-          </div>
-          <div class="item">
-            <img src="img/call-saul.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/elfinal.webp" />
-          </div>
-          <div class="item">
-            <img src="img/lanina.jpg" />
-          </div>
-          <div class="item">
-            <img src="img/scielos.webp" />
-          </div>
-          <div class="item">
-            <img src="img/thewitcher.jpg" />
-          </div>
-          <a href="#cat3-sec1">›</a>
-        </section>
+      <div id="zonasliders">
+        <!--Categoria 1 de peliculas (Accion)-->
+        <div class="tit-section"><h5>Acción</h5></div>
+        <div class="wrapper">
+          <section>
+            <a href="#">‹</a>
+            <div id="slider-accion" class="carousel d-flex flex-row"></div>
+            <a href="#">›</a>
+          </section>
+        </div>
+        <div class="tit-section"><h5>Comedia</h5></div>
+        <div class="wrapper">
+          <section>
+            <a href="#">‹</a>
+            <div id="slider-comedia" class="carousel d-flex flex-row"></div>
+            <a href="#">›</a>
+          </section>
+        </div>
+        <div class="tit-section"><h5>Suspenso</h5></div>
+        <div class="wrapper">
+          <section>
+            <a
+              href="#"
+              class="jcarousel-control-prev"
+              data-jcarouselcontrol="true"
+              >‹</a
+            >
+            <div
+              id="slider-suspenso"
+              class="d-flex flex-row jcarousel"
+              data-jcarousel="true"
+            ></div>
+            <a
+              href="#"
+              class="jcarousel-control-next"
+              data-jcarouselcontrol="true"
+              >›</a
+            >
+          </section>
+        </div>
       </div>
     </main>
     <div w3-include-html="footer.html"></div>
     <!-- Modal PLAYER -->
     <div
-      class="modal fade modal-dialog-center"
+      class="modal fullscreen-modal fade modal-dialog-center"
       id="player"
       tabindex="-1"
       role="dialog"
@@ -238,14 +111,13 @@
         <div class="modal-content">
           <video
             id="video"
-            style="width: 100%; height: 100%"
             preload
             autoplay
             muted
             loop
             class="embed-responsive embed-responsive-16by9"
           >
-            <source src="videos/sample_2.mp4" type="video/mp4" />
+            <source src="videos/sample_1280x720_5mb.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
