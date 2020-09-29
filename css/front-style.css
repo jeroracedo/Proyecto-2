@@ -21,6 +21,9 @@ header {
   padding-bottom: 50px;
 }
 /*navegacion*/
+.navbar-toggler-icon {
+  z-index: 20;
+}
 .navbar-logotexto a {
   font-size: 1.8em;
   color: #3abdfa;
@@ -91,9 +94,55 @@ nav .search-container button:hover {
 }
 
 /*personalizacion de la navegación - fin --------------------------------------*/
+/*Imagen de pelicula destacada*/
 
-/* CAROUSEL del Inicio
-Style the video: 100% width and height to cover the entire window */
+.destacado {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.destacado img {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.destacado .resumen-peli {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #999;
+  position: absolute;
+
+  bottom: 10px;
+  width: 100%;
+}
+.destacado .resumen-peli button {
+  z-index: 10;
+}
+.resumen-peli p {
+  font-size: 2.5vw;
+}
+.resumen-peli h3 {
+  font-size: 4vw; /*tamaño del titulo de la pelicula en el destacado*/
+  text-align: left;
+  color: #3afa74;
+}
+
+#btnPlay {
+  font-size: 2vw;
+  font-weight: 600;
+  padding: 1vw;
+  border: none;
+  background: #3abdfa;
+  color: whitesmoke;
+  cursor: pointer;
+  border-radius: 5px;
+}
+#btnPlay:hover {
+  background: whitesmoke;
+  color: black;
+}
+/* Video destacado del Inicio
+video: 100% width and height para fullscreen*/
 #myVideo {
   /*position: absolute;*/
   right: 0;
@@ -113,35 +162,7 @@ Style the video: 100% width and height to cover the entire window */
   justify-content: center;
   align-items: center;
 }
-.resumen-peli {
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #999;
-  width: 100%;
-  z-index: 10;
-}
 
-.resumen-peli h3 {
-  text-align: left;
-  color: #3afa74;
-}
-
-#btnPlay {
-  width: 130px;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 10px;
-  border: none;
-  background: #3abdfa;
-  color: whitesmoke;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-#btnPlay:hover {
-  background: whitesmoke;
-  color: black;
-}
 /*Slider categorias de VIDEOS*/
 .tit-section {
   font-weight: 500;
@@ -151,11 +172,42 @@ Style the video: 100% width and height to cover the entire window */
   background: linear-gradient(90deg, #127aaa, transparent);
   border-bottom: 1px solid #3abdfa;
   border-left: 3px solid #3abdfa;
+  text-shadow: 0px 0px 5px #000;
 }
 
+.jcarousel {
+  position: relative;
+  overflow: hidden;
+}
+
+/*
+This is the container of the carousel items.
+You must ensure that the position is relative or absolute and
+that the width is big enough to contain all items.
+*/
+.jcarousel .wrap {
+  width: 10000em;
+  position: relative;
+
+  /* Optional, required in this case since it's a <ul> element */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+These are the item elements. jCarousel works best, if the items
+have a fixed width and height (but it's not required).
+*/
+.jcarousel .item {
+  /* Required only for block elements like <li>'s */
+  float: left;
+}
 .wrapper {
-  display: grid;
-  grid-template-columns: repeat(3, 100%);
+  width: 100%;
+  text-align: center;
+  /*display: grid;
+  grid-template-columns: repeat(6, 100%);*/
   overflow: hidden;
   scroll-behavior: smooth;
 }
@@ -169,10 +221,15 @@ Style the video: 100% width and height to cover the entire window */
   grid-template-columns: repeat(6, auto); /*cantidad de imagenes por fila*/
   margin: 0 0 20px 0;
 }
-
 .wrapper section .item {
   padding: 0 2px;
   transition: 200ms all;
+  display: inline-block;
+}
+.wrapper section .item {
+  padding: 0 2px;
+  transition: 200ms all;
+  display: inline-block;
 }
 .wrapper section .item:hover {
   margin: 0 10px 0 10px;
@@ -217,7 +274,7 @@ Style the video: 100% width and height to cover the entire window */
     rgba(0, 0, 0, 1) 100%
   );
 }
-
+/*FOOTER*/
 footer a {
   color: #035379;
   font-weight: 500;
@@ -235,4 +292,14 @@ footer {
   border-top: 1px solid#035379;
   background-color: #01334b7a;
   color: #035379;
+}
+/*Modal Destacado*/
+.fullscreen-modal .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+video {
+  width: 100%;
 }
