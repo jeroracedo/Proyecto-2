@@ -17,6 +17,7 @@ const pelidestacada = document.getElementById("destaca_pelicula");
 
 class MostrarPelicula {
   ver(peliculas) {
+    let acumulador = 0;
     for (var i = 0; i < peliculas.length; i++) {
       //En esta parte se busca si la pelicula esta destacada y publicada
       if (
@@ -37,6 +38,7 @@ class MostrarPelicula {
             <i class="fa fa-play-circle" aria-hidden="true"></i> Reproducir
           </button>`;
         pelidestacada.appendChild(peli_d);
+        acumulador++;
       }
       //En esta parte se busca si la pelicula es de "accion" y esta publicada
       if (
@@ -93,6 +95,15 @@ class MostrarPelicula {
         itempeli.innerHTML = `<div class="item"><img src="${peliculas[i]._Imagen}" /></div>`;
         slidersuspenso.appendChild(itempeli);
       }
+    }
+    if (acumulador === 0) {
+      console.log("hola");
+      const peli_d = document.createElement("div");
+      peli_d.className = "destacado";
+      peli_d.innerHTML = `
+        
+        `;
+      pelidestacada.appendChild(peli_d);
     }
   }
 }
