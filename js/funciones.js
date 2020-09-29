@@ -111,7 +111,7 @@ class MostrarPelicula {
       pelidestacada.appendChild(peli_d);
     }
     if (acumuladorAccion === 0) {
-      const ocultarSlider = document.getElementById("slider-accion");
+      const ocultarSlider = document.getElementById("sAcc");
       ocultarSlider.style.display = "none";
     }
   }
