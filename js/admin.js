@@ -1,6 +1,6 @@
 class GenerarFormulario {
   // Genera el Formulario al hacer click en boton generar formulario
-  generarForumulario(id, nombre, descripcion, nombreBoton) {
+  generarForumulario(id, nombre, descripcion, nombreBoton, imagen) {
     const formulario = document.getElementById("formularioAgregarPelicula");
     //const elemento = document.createElement("div");
     formulario.innerHTML = `<form id="formulario8">
@@ -18,7 +18,7 @@ class GenerarFormulario {
     </div>
     <div class="form-group">
       <label for="exampleFormControlInput1" class="labelblanco">Imagen</label>
-      <input type="codigo" class="form-control" id="Imagen" placeholder="Imagen">
+      <input type="codigo" value="${imagen}" class="form-control" id="Imagen" placeholder="Imagen">
     </div>
     <div class="form-group">
       <label for="exampleFormControlSelect1" class="labelblanco">Categoria</label>
@@ -147,7 +147,7 @@ class NuevaPelicula {
     <td>${peliculas[i]._Nombre}</td>
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
-    <td> <div class="form-group form-check">
+    <td> <div class="form-group form-check" >
     <input type="checkbox" ${checked}
     } class="form-check-input" id="check${peliculas[i]._Codigo}">
   </div></td>
@@ -176,17 +176,24 @@ class NuevaPelicula {
 
       document.getElementById("n" + peliculas[i]._Codigo).onclick = changeMovie;
       function changeMovie(e) {
+        const array = JSON.parse(localStorage.getItem("peliculas"));
         const valores = e.target.parentElement.parentElement.childNodes;
         const formulario = new GenerarFormulario();
-        formulario.generarForumulario(
-          valores[1].textContent,
-          valores[3].textContent,
-          valores[5].textContent,
-          "Guardar Cambios"
-        );
-        var ocultarBoton = document.getElementById("agregarPelicula");
-        ocultarBoton.style.display = "none";
+        for (i = 0; i < peliculas.length; i++) {
+          if (valores[1].textContent === peliculas[i]._Codigo) {
+            formulario.generarForumulario(
+              valores[1].textContent,
+              valores[3].textContent,
+              valores[5].textContent,
+              "Guardar Cambios",
+              peliculas[i]._Codigo
+            );
+            var ocultarBoton = document.getElementById("agregarPelicula");
+            ocultarBoton.style.display = "none";
+          }
+        }
       }
+
       document.getElementById(
         "d" + peliculas[i]._Codigo
       ).onclick = peliculaDestacada;
@@ -268,18 +275,25 @@ class NuevaPelicula {
       }
       e.target.parentElement.parentElement.remove();
     }
-    document.getElementById("n" + peliculas[i]._Codigo).onclick = changeMovie;
 
+    document.getElementById("n" + peliculas[i]._Codigo).onclick = changeMovie;
     function changeMovie(e) {
+      const array = JSON.parse(localStorage.getItem("peliculas"));
       const valores = e.target.parentElement.parentElement.childNodes;
-      console.log(valores);
       const formulario = new GenerarFormulario();
-      formulario.generarForumulario(
-        valores[1].textContent,
-        valores[3].textContent,
-        valores[5].textContent,
-        "Guardar Cambios"
-      );
+      for (i = 0; i < peliculas.length; i++) {
+        if (valores[1].textContent === peliculas[i]._Codigo) {
+          formulario.generarForumulario(
+            valores[1].textContent,
+            valores[3].textContent,
+            valores[5].textContent,
+            "Guardar Cambios",
+            peliculas[i]._Codigo
+          );
+          var ocultarBoton = document.getElementById("agregarPelicula");
+          ocultarBoton.style.display = "none";
+        }
+      }
       var ocultarBoton = document.getElementById("agregarPelicula");
       ocultarBoton.style.display = "none";
     }
@@ -335,7 +349,7 @@ const eventoAgregarPelicula = document
   .addEventListener("click", function (e) {
     console.log("hice click");
     const formulario = new GenerarFormulario();
-    formulario.generarForumulario("", "", "", "Agregar Pelicula");
+    formulario.generarForumulario("", "", "", "Agregar Pelicula", "");
     var ocultarBoton = document.getElementById("agregarPelicula");
     ocultarBoton.style.display = "none";
     e.preventDefault();
