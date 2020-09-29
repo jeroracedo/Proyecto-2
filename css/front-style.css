@@ -126,6 +126,23 @@ nav .search-container button:hover {
   text-align: left;
   color: #3afa74;
 }
+.texto-inicio h1 {
+  font-size: 5vw;
+}
+.texto-inicio h3 {
+  font-size: 2.5vw;
+  color: #1982b3;
+}
+.texto-inicio {
+  font-size: 5vw; /*tamaño del titulo de la pelicula en el destacado*/
+  text-align: left;
+  padding: 20px;
+  /*background: rgba(0, 0, 0, 0.5);*/
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  width: 50%;
+}
 
 #btnPlay {
   font-size: 2vw;

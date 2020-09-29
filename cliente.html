@@ -41,17 +41,6 @@
         
       </div>
       </div>
-      <!--div id="destacado">
-        <img src="img/spartacus.webp" />
-
-        <div id="resumen-peli">
-          <h3>Nombre de la Pelicula</h3>
-          <p>breve reseña...</p>
-          <a id="btnPlay" data-target="#player" data-toggle="modal">
-            <i class="fa fa-play-circle" aria-hidden="true"></i> Reproducir
-          </a>
-        </div>
-      </div-->
     </header>
     <!-- MAIN -->
     <main role="main" class="d-flex flex-row flex-wrap">
@@ -61,7 +50,7 @@
         <div class="wrapper">
           <section>
             <a href="#">‹</a>
-            <div id="slider-accion" class="carousel d-flex flex-row"></div>
+            <div id="slider-accion" class="jcarousel d-flex flex-row"></div>
             <a href="#">›</a>
           </section>
         </div>
@@ -69,7 +58,7 @@
         <div class="wrapper">
           <section>
             <a href="#">‹</a>
-            <div id="slider-comedia" class="carousel d-flex flex-row"></div>
+            <div id="slider-comedia" class="jcarousel d-flex flex-row"></div>
             <a href="#">›</a>
           </section>
         </div>
@@ -109,16 +98,7 @@
     >
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <video
-            id="video"
-            preload
-            autoplay
-            muted
-            loop
-            class="embed-responsive embed-responsive-16by9"
-          >
-            <source src="videos/sample_1280x720_5mb.mp4" type="video/mp4" />
-          </video>
+          <video controls="false" preload="true" autoplay="true" name="media"><source src="https://muzzo.com.ar/v/digital_grapes.mp4" type="video/mp4"></video>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ $(function () {
 //Funciones para el contenido dinámico
 // Trae el listado de peliculas del Local Storage
 const pelis = JSON.parse(localStorage.getItem("peliculas"));
-
+const zonasliders = document.getElementById("zona-sliders");
 const slideraccion = document.getElementById("slider-accion");
 const slidercomedia = document.getElementById("slider-comedia");
 const sliderterror = document.getElementById("slider-terror");
@@ -18,6 +18,7 @@ const pelidestacada = document.getElementById("destaca_pelicula");
 class MostrarPelicula {
   ver(peliculas) {
     let acumulador = 0;
+    let acumuladorAccion = 0;
     for (var i = 0; i < peliculas.length; i++) {
       //En esta parte se busca si la pelicula esta destacada y publicada
       if (
@@ -49,6 +50,7 @@ class MostrarPelicula {
         itempeli.className = "item";
         itempeli.innerHTML = `<img src="${peliculas[i]._Imagen}" />`;
         slideraccion.appendChild(itempeli);
+        acumuladorAccion++;
       }
       //En esta parte se busca si la pelicula es de "comedia" y esta publicada
       if (
@@ -101,9 +103,16 @@ class MostrarPelicula {
       const peli_d = document.createElement("div");
       peli_d.className = "destacado";
       peli_d.innerHTML = `
-        
-        `;
+      <img src="https://muzzo.com.ar/v/videodemanda.jpg"/>
+      <div class="texto-inicio d-flex flex-column align-items-start">
+        <h1>NetFilms</h1>
+        <h3><i>las mejores películas y series</i></h3>
+      </div>`;
       pelidestacada.appendChild(peli_d);
+    }
+    if (acumuladorAccion === 0) {
+      const ocultarSlider = document.getElementById("slider-accion");
+      ocultarSlider.style.display = "none";
     }
   }
 }
