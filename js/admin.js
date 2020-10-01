@@ -185,7 +185,7 @@ class NuevaPelicula {
               valores[3].textContent,
               valores[5].textContent,
               "Guardar Cambios",
-              peliculas[i]._Codigo
+              peliculas[i]._Imagen
             );
             var ocultarBoton = document.getElementById("agregarPelicula");
             ocultarBoton.style.display = "none";
@@ -287,7 +287,7 @@ class NuevaPelicula {
             valores[3].textContent,
             valores[5].textContent,
             "Guardar Cambios",
-            peliculas[i]._Codigo
+            peliculas[i]._Imagen
           );
           var ocultarBoton = document.getElementById("agregarPelicula");
           ocultarBoton.style.display = "none";
