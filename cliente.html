@@ -21,6 +21,20 @@
       crossorigin="anonymous"
     />
     <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/jcarousel.responsive.css"
+    />
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+
+    <script type="text/javascript" src="js/jcarousel.responsive.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rosario:ital,wght@0,500;0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
       href="https://fonts.googleapis.com/css2?family=Rosario:ital,wght@0,500;0,700;1,700&display=swap"
       rel="stylesheet"
     />
@@ -44,47 +58,69 @@
     </header>
     <!-- MAIN -->
     <main role="main" class="d-flex flex-row flex-wrap">
-      <div id="zonasliders">
-        <!--Categoria 1 de peliculas (Accion)-->
-        <div class="tit-section" id="sAcc"><h5>Acción</h5></div>
-        <div class="wrapper">
-          <section>
-            <a href="#">‹</a>
-            <div id="slider-accion" class="jcarousel d-flex flex-row"></div>
-            <a href="#">›</a>
-          </section>
+      
+        <!--Categoria de peliculas (Accion)-->
+        
+          <div id="tAcc" class="tit-section" ><h5>Acción</h5></div>
+          <div id="wAcc" class="wrapper">
+            <div  class="jcarousel-wrapper">
+              <div class="jcarousel">
+                <ul id="slider-accion">
+                  
+                </ul>
+              </div>  
+              <div ><a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a></div>
+            </div>
+          </div>
+        
+          <!--Categoria de peliculas (Comedia)-->
+       
+          <div id="tCom" class="tit-section"><h5>Comedia</h5></div>
+          <div id="wCom" class="wrapper">
+            <div  class="jcarousel-wrapper">
+              <div class="jcarousel">
+                <ul id="slider-comedia">
+                  
+                </ul>
+              </div>  
+              <div ><a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a></div>
+            </div>
+          </div>
+        
+          <!--Categoria de peliculas (Terror)-->
+        
+          <div id="tTer" class="tit-section" ><h5>Terror</h5></div>
+          <div  id="wTer" class="wrapper">
+            <div  class="jcarousel-wrapper">
+              <div class="jcarousel">
+                <ul id="slider-terror">
+                  
+                </ul>
+              </div>  
+              <div ><a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a></div>
+          </div>
         </div>
-        <div class="tit-section"><h5>Comedia</h5></div>
-        <div class="wrapper">
-          <section>
-            <a href="#">‹</a>
-            <div id="slider-comedia" class="jcarousel d-flex flex-row"></div>
-            <a href="#">›</a>
-          </section>
-        </div>
-        <div class="tit-section"><h5>Suspenso</h5></div>
-        <div class="wrapper">
-          <section>
-            <a
-              href="#"
-              class="jcarousel-control-prev"
-              data-jcarouselcontrol="true"
-              >‹</a
-            >
-            <div
-              id="slider-suspenso"
-              class="d-flex flex-row jcarousel"
-              data-jcarousel="true"
-            ></div>
-            <a
-              href="#"
-              class="jcarousel-control-next"
-              data-jcarouselcontrol="true"
-              >›</a
-            >
-          </section>
-        </div>
-      </div>
+          <!--Categoria de peliculas (Suspenso)-->
+        
+          <div id="tSus" class="tit-section" ><h5>Suspenso</h5></div>
+            <div id="wSus" class="wrapper">
+              <div  class="jcarousel-wrapper">
+                <div class="jcarousel">
+                  <ul id="slider-suspenso">
+                    
+                  </ul> 
+                </div>  
+                <div ><a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a></div>
+              </div>
+            </div>
+          
+            
+            
+      
     </main>
     <div w3-include-html="footer.html"></div>
     <!-- Modal PLAYER -->

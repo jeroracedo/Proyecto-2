@@ -8,7 +8,7 @@ $(function () {
 //Funciones para el contenido dinámico
 // Trae el listado de peliculas del Local Storage
 const pelis = JSON.parse(localStorage.getItem("peliculas"));
-const zonasliders = document.getElementById("zona-sliders");
+//const zonasliders = document.getElementById("zona-sliders");
 const slideraccion = document.getElementById("slider-accion");
 const slidercomedia = document.getElementById("slider-comedia");
 const sliderterror = document.getElementById("slider-terror");
@@ -19,6 +19,17 @@ class MostrarPelicula {
   ver(peliculas) {
     let acumulador = 0;
     let acumuladorAccion = 0;
+    let acumuladorComedia = 0;
+    let acumuladorTerror = 0;
+    let acumuladorSuspenso = 0;
+    function ocultarElementos(idTitulo, idWrapper) {
+      const ocultarTitulo = document.getElementById(idTitulo);
+      const ocultarWrapper = document.getElementById(idWrapper);
+      ocultarTitulo.style.display = "none";
+      ocultarWrapper.style.display = "none";
+    }
+    function listadoImagenes() {}
+
     for (var i = 0; i < peliculas.length; i++) {
       //En esta parte se busca si la pelicula esta destacada y publicada
       if (
@@ -46,8 +57,7 @@ class MostrarPelicula {
         peliculas[i]._Categoria == "Acción" &&
         peliculas[i]._Publicada === true
       ) {
-        const itempeli = document.createElement("div");
-        itempeli.className = "item";
+        const itempeli = document.createElement("li");
         itempeli.innerHTML = `<img src="${peliculas[i]._Imagen}" />`;
         slideraccion.appendChild(itempeli);
         acumuladorAccion++;
@@ -57,45 +67,30 @@ class MostrarPelicula {
         peliculas[i]._Categoria == "Comedia" &&
         peliculas[i]._Publicada === true
       ) {
-        const itempeli = document.createElement("div");
-        itempeli.className = "item";
+        const itempeli = document.createElement("li");
         itempeli.innerHTML = `<img src="${peliculas[i]._Imagen}" />`;
         slidercomedia.appendChild(itempeli);
+        acumuladorComedia++;
       }
       //En esta parte se busca si la pelicula es de "terror" y esta publicada
       if (
         peliculas[i]._Categoria == "Terror" &&
         peliculas[i]._Publicada === true
       ) {
-        const itempeli = document.createElement("div");
-        itempeli.className = "item";
+        const itempeli = document.createElement("li");
         itempeli.innerHTML = `<img src="${peliculas[i]._Imagen}" />`;
         sliderterror.appendChild(itempeli);
+        acumuladorTerror++;
       }
       //En esta parte se busca si la pelicula es de "suspenso" y esta publicada
       if (
         peliculas[i]._Categoria == "Suspenso" &&
         peliculas[i]._Publicada === true
       ) {
-        //INTENTO: Este fue un intento de crear el slider completo de la catgoria
-        //const titseccion = document.createElement("div");
-        //titseccion.className = "tit-section";
-        //titseccion.innerHTML = `<h5>Suspenso</h5>`;
-        //const wrapper = document.createElement("div");
-        //wrapper.className = "wrapper";
-        //wrapper.innerHTML = `<section>
-        //<a href="#cat1-sec3">‹</a>
-        //<div id="slider-suspenso" class="d-flex flex-row"></div>
-        //<a href="#cat1-sec2">›</a>
-        //</section>
-        //`;
-        //zonasliders.appendChild(titseccion);
-        //zonasliders.appendChild(wrapper);
-
-        const itempeli = document.createElement("div");
-        itempeli.className = "wrap";
-        itempeli.innerHTML = `<div class="item"><img src="${peliculas[i]._Imagen}" /></div>`;
+        const itempeli = document.createElement("li");
+        itempeli.innerHTML = `<img src="${peliculas[i]._Imagen}" />`;
         slidersuspenso.appendChild(itempeli);
+        acumuladorSuspenso++;
       }
     }
     if (acumulador === 0) {
@@ -110,9 +105,18 @@ class MostrarPelicula {
       </div>`;
       pelidestacada.appendChild(peli_d);
     }
+    //Si no hay películas de alguna categoria, oculta el titulo del slider
     if (acumuladorAccion === 0) {
-      const ocultarSlider = document.getElementById("sAcc");
-      ocultarSlider.style.display = "none";
+      ocultarElementos("tAcc", "wAcc");
+    }
+    if (acumuladorComedia === 0) {
+      ocultarElementos("tCom", "wCom");
+    }
+    if (acumuladorTerror === 0) {
+      ocultarElementos("tTer", "wTer");
+    }
+    if (acumuladorSuspenso === 0) {
+      ocultarElementos("tSus", "wSus");
     }
   }
 }
