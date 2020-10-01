@@ -25,7 +25,7 @@ class GenerarFormulario {
       <select class="form-control" id="Categoria">
         <option>Acción</option>
         <option>Comedia</option>
-        
+        <option>Terror</option>
         <option>Suspenso</option>
       </select>
     </div>
