@@ -186,6 +186,7 @@ video: 100% width and height para fullscreen*/
   font-style: italic;
   padding: 7px 100px 0 20px;
   display: block;
+  float: left;
   background: linear-gradient(90deg, #127aaa, transparent);
   border-bottom: 1px solid #3abdfa;
   border-left: 3px solid #3abdfa;

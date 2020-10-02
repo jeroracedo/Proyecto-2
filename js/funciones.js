@@ -22,10 +22,8 @@ class MostrarPelicula {
     let acumuladorComedia = 0;
     let acumuladorTerror = 0;
     let acumuladorSuspenso = 0;
-    function ocultarElementos(idTitulo, idWrapper) {
-      const ocultarTitulo = document.getElementById(idTitulo);
+    function ocultarElementos(idWrapper) {
       const ocultarWrapper = document.getElementById(idWrapper);
-      ocultarTitulo.style.display = "none";
       ocultarWrapper.style.display = "none";
     }
     function listadoImagenes() {}
@@ -107,16 +105,16 @@ class MostrarPelicula {
     }
     //Si no hay películas de alguna categoria, oculta el titulo del slider
     if (acumuladorAccion === 0) {
-      ocultarElementos("tAcc", "wAcc");
+      ocultarElementos("wAcc");
     }
     if (acumuladorComedia === 0) {
-      ocultarElementos("tCom", "wCom");
+      ocultarElementos("wCom");
     }
     if (acumuladorTerror === 0) {
-      ocultarElementos("tTer", "wTer");
+      ocultarElementos("wTer");
     }
     if (acumuladorSuspenso === 0) {
-      ocultarElementos("tSus", "wSus");
+      ocultarElementos("wSus");
     }
   }
 }

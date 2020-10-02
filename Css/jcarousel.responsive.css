@@ -54,7 +54,7 @@ pre {
 .jcarousel-control-prev,
 .jcarousel-control-next {
   position: absolute;
-  top: 50%;
+  top: 65%; /*altura de la flecha del slider*/
   margin-top: -15px;
 
   text-align: center;
