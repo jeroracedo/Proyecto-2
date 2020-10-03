@@ -35,7 +35,7 @@ header {
 }
 .destacado .resumen-peli {
   padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   color: #999;
   position: absolute;
 
@@ -51,7 +51,7 @@ header {
 .resumen-peli h3 {
   font-size: 4vw; /*tamaño del titulo de la pelicula en el destacado*/
   text-align: left;
-  color: #3afa74;
+  color: #fff;
 }
 .texto-inicio h1 {
   font-size: 5vw;
