@@ -40,9 +40,9 @@ nav {
   padding-left: 15px;
   font-weight: 500;
   display: block;
-  text-align: center;
+  text-align: right;
   color: whitesmoke;
-} /* los links se mostrarán en bloques. texto centrado y con un leve grosor*/
+} /* los links se mostrarán en bloques. alineacion derecha y con un leve grosor*/
 
 .nav-item a:link a:visited {
   color: #000;
