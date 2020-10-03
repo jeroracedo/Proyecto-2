@@ -35,17 +35,22 @@ body {
   border: 0;
 }
 
+footer,
+a {
+  color: #3abdfa;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 /*pagina admin*/
 #listapeliculas {
   margin-top: 100px;
-}
-
-/* NAVBAR */
-#transparenciaNavbar {
-  background: white;
-}
-#logo {
-  width: 50px;
 }
 
 .fondotabla {
@@ -55,4 +60,14 @@ body {
 
 .labelblanco {
   color: white;
+}
+.panel {
+  overflow: hidden;
+
+  color: #3abdfa;
+  margin: 6px;
+  cursor: pointer;
+}
+.panel:hover {
+  color: #035379;
 }

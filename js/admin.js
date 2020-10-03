@@ -150,10 +150,11 @@ class NuevaPelicula {
     <input type="checkbox" ${checked}
     } class="form-check-input" id="check${peliculas[i]._Codigo}">
   </div></td>
-    <td><button id="${peliculas[i]._Codigo}">Borrar
-  </button>
-  <button id="${"n" + peliculas[i]._Codigo}">Modificar</button>
-  <button id="${"d" + peliculas[i]._Codigo}"> Destacar </button>
+  <td class="d-flex flex-column align-items-center pt-4"><span id="${
+    peliculas[i]._Codigo
+  }" class="panel far fa-trash-alt"></span>
+  <span class="panel far fa-edit" id="${"n" + peliculas[i]._Codigo}"></span>
+  <span class="panel far fa-star" id="${"d" + peliculas[i]._Codigo}"></span>
 
   </<td>
     `;
