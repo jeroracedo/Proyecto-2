@@ -11,4 +11,4 @@ Embeber video responsive:
 https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=responsive-videos
 
 Slider para categorías:
-https://codepen.io/amar1203/pen/ExjyKLz
+https://sorgalla.com/jcarousel/examples/responsive/

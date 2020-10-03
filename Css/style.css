@@ -2,6 +2,7 @@ body {
   /*background-color: black;/*/
   background: url(../Img/luna.jpg) no-repeat center center fixed;
   background-size: cover;
+  font-family: "Rosario", sans-serif;
 }
 .main-section {
   margin: 0 auto;
