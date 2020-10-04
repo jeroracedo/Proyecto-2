@@ -146,10 +146,10 @@ class NuevaPelicula {
     <td>${peliculas[i]._Nombre}</td>
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
-    <td> <div class="form-group form-check" >
-    <input type="checkbox" ${checked}
+    <td> 
+    <input class="mx-5 my-5" type="checkbox" ${checked}
     } class="form-check-input" id="check${peliculas[i]._Codigo}">
-  </div></td>
+  </td>
   <td class="d-flex flex-column align-items-center pt-4"><span id="${
     peliculas[i]._Codigo
   }" class="panel far fa-trash-alt"></span>
