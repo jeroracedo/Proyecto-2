@@ -147,8 +147,8 @@ class NuevaPelicula {
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
     <td> 
-    <input class="mx-5 my-5" type="checkbox" ${checked}
-    } class="form-check-input" id="check${peliculas[i]._Codigo}">
+    <input type="checkbox" ${checked}
+    } class="form-check-input mx-5 my-5" id="check${peliculas[i]._Codigo}">
   </td>
   <td class="d-flex flex-column align-items-center pt-4"><span id="${
     peliculas[i]._Codigo
@@ -250,16 +250,18 @@ class NuevaPelicula {
     <td>${peliculas[i]._Nombre}</td>
     <td>${peliculas[i]._Descripcion}</td>
     <td>${peliculas[i]._Categoria}</td>
-    <td> <div class="form-group form-check">
-    <input type="checkbox"  class="form-check-input" id="check${
+    <td> 
+    <input type="checkbox"  class="form-check-input mx-5 my-5" id="check${
       peliculas[i]._Codigo
     }">
-  </div> </td>
-    <td><button  id="${peliculas[i]._Codigo}">Borrar
-  </button>
-  <button id="${"n" + peliculas[i]._Codigo}"> Modificar</button>
-  <button id="${"d" + peliculas[i]._Codigo}"> Destacar </button>
-  </<td>`;
+   </td>
+    <td class="d-flex flex-column align-items-center pt-4"><span  class="panel far fa-trash-alt" id="${
+      peliculas[i]._Codigo
+    }">
+  </span>
+  <span class="panel far fa-edit" id="${"n" + peliculas[i]._Codigo}"></span>
+  <span class="panel far fa-star" id="${"d" + peliculas[i]._Codigo}"></span>
+  </td>`;
     tabla.appendChild(elemento);
     document.getElementById(peliculas[i]._Codigo).onclick = deleteMovie;
     console.log(document.getElementById(peliculas[i]._Codigo));
