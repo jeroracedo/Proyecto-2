@@ -155,8 +155,7 @@ class NuevaPelicula {
   }" class="panel far fa-trash-alt"></span>
   <span class="panel far fa-edit" id="${"n" + peliculas[i]._Codigo}"></span>
   <span class="panel far fa-star" id="${"d" + peliculas[i]._Codigo}"></span>
-
-  </<td>
+  </td>
     `;
       tabla.appendChild(elemento);
       document.getElementById(peliculas[i]._Codigo).onclick = deleteMovie;
