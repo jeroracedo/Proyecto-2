@@ -112,16 +112,26 @@
     <div w3-include-html="footer.html"></div>
     <!-- Modal PLAYER -->
     <div
-      class="modal fullscreen-modal fade modal-dialog-center"
+      class="modal fullscreen-modal fade"
       id="player"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLongTitle"
       aria-hidden="true"
     >
-      <div class="modal-dialog" role="document">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
-          <video controls="false" preload="true" autoplay="true" name="media"><source src="https://muzzo.com.ar/v/digital_grapes.mp4" type="video/mp4"></video>
+          <video
+            id="video"
+            preload
+            autoplay
+            muted
+            loop
+            controls
+            class="embed-responsive embed-responsive-16by9"
+          >
+            <source src="videos/sample_1280x720_5mb.mp4" type="video/mp4" />
+          </video>
         </div>
       </div>
     </div>
